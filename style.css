@@ -62,6 +62,7 @@
   display: grid;
   gap: 1rem;
   padding: 0px 20px;
+  z-index: 1;
 }
 
 .card-main {
@@ -69,6 +70,7 @@
   border-radius: 8px;
   text-align: center;
   background-color: rgb(238, 231, 130);
+  z-index: 1;
 }
 
 .card-title {
@@ -118,6 +120,19 @@
   color: black;
   content: "Name:";
   margin-right: 4px;
+}
+
+#notFound {
+  /* display: flex; */
+  justify-content: center;
+  display: none;
+  margin: 0 auto;
+  z-index: 10;
+}
+
+#notFound p {
+  font-size: 22px;
+  color: #ff3535;
 }
 
 /* --------------------------------MEDIA QUERIES---------------------------------- */

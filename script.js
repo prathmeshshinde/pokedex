@@ -68,41 +68,33 @@ getPokeData();
 searchForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   let searchVal = document.getElementById("search");
+  let x = document.getElementsByClassName("card");
+  let xLength = x[0].children;
 
   if (searchVal.value === "") {
     getCard.innerHTML = "";
     getPokeData();
   } else {
-    const result = await fetchAPI();
-
     const searchLowerCase = searchVal.value.toLowerCase();
 
-    let x = document.getElementsByClassName("card");
-    console.log(x, "hello");
-    for (i = 0; i < x.length; i++) {
-      // checking  the name or type entered by user from search box if doesn't match than dont display the message
-      if (!x[i].innerHTML.toLowerCase().includes(input)) {
-        x[i].style.display = "none";
-      }
-      // checking  the name or type entered by user from search box if doesn't match than dont display the pokemon card
-      else {
-        x[i].style.display = "list-item";
+    // If input value is not found in the innerHTML of All cards then it will display this
+    if (!x[0].innerHTML.toLowerCase().includes(searchLowerCase)) {
+      let not = document.getElementById("notFound");
+      not.style.display = "flex";
+      console.log(not, "heelo");
+    }
+
+    // looping through all available pokemon card to search the input value
+    // if input is found in the innerHTML of card
+    // then card style will be  display:block and if not then display:none
+    for (let i = 0; i < xLength.length; i++) {
+      if (!xLength[i].innerHTML.toLowerCase().includes(searchLowerCase)) {
+        xLength[i].style.display = "none";
+      } else {
+        xLength[i].style.display = "block";
       }
     }
 
-    const searchResult = result.filter(
-      (pokemon) => pokemon.name === searchLowerCase
-    );
-
-    let updateResult = await node(searchResult);
-
-    // Setting Card Div empty so that it only shows searched results
-    getCard.innerHTML = "";
-
-    // Appending Card to Main div
-    getCard.append(...updateResult);
-
-    // Setting input field empty
     document.getElementById("search").value = "";
   }
 });
