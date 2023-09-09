@@ -1,4 +1,3 @@
-console.log("Just Checking");
 const API_URL = "https://pokeapi.co/api/v2/pokemon?limit=100&offset=0";
 
 let getCard = document.getElementById("card");
@@ -68,6 +67,7 @@ getPokeData();
 searchForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   let searchVal = document.getElementById("search");
+  let not = document.getElementById("notFound");
   let x = document.getElementsByClassName("card");
   let xLength = x[0].children;
 
@@ -79,9 +79,7 @@ searchForm.addEventListener("submit", async (e) => {
 
     // If input value is not found in the innerHTML of All cards then it will display this
     if (!x[0].innerHTML.toLowerCase().includes(searchLowerCase)) {
-      let not = document.getElementById("notFound");
       not.style.display = "flex";
-      console.log(not, "heelo");
     }
 
     // looping through all available pokemon card to search the input value
@@ -92,6 +90,7 @@ searchForm.addEventListener("submit", async (e) => {
         xLength[i].style.display = "none";
       } else {
         xLength[i].style.display = "block";
+        not.style.display = "none";
       }
     }
 
