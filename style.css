@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* ------------------NAVBAR--------------- */
+
+.navbar {
+  padding: 20px 50px;
+}
+
+.logo {
+  font-size: 32px;
+  color: crimson;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+/* --------------HERO-CONTAINER-------------- */
+
+.search-div {
+  display: flex;
+  justify-content: center;
+}
+
+.search-form-div {
+  width: 70%;
+}
+
+.form-inside {
+  display: flex;
+  justify-content: center;
+}
+
+#search {
+  padding: 6px 10px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid #ff3535;
+  margin: 0px 10px 0px 0px;
+  width: 50%;
+}
+
+.search-button {
+  background-color: #ff3535;
+  padding: 6px 20px;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.card-grid {
+  margin: 30px 0px;
+}
+
+#card {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  padding: 0px 20px;
+}
+
+.card-main {
+  border: 1px solid #ff3535;
+  border-radius: 8px;
+  text-align: center;
+  background-color: rgb(238, 231, 130);
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: capitalize;
+  background-color: #ff3535;
+  color: white;
+  padding: 4px 10px;
+  text-align: start;
+}
+
+.image-class {
+  width: 200px;
+  height: 200px;
+}
+
+.card-ability,
+.card-type {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: white;
+  background-color: #ff3535;
+  padding: 4px 10px;
+  text-align: start;
+}
+
+.card-type {
+  border-radius: 0px 0px 8px 8px;
+  padding-bottom: 15px;
+}
+
+.card-type:before {
+  color: black;
+  content: "Type:";
+  margin-right: 4px;
+}
+
+.card-ability:before {
+  color: black;
+  content: "Ability:";
+  margin-right: 4px;
+}
+
+.card-title:before {
+  color: black;
+  content: "Name:";
+  margin-right: 4px;
+}
+
+/* --------------------------------MEDIA QUERIES---------------------------------- */
+
+@media (min-width: 600px) {
+  #card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  #card {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
