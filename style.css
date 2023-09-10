@@ -34,12 +34,14 @@
 }
 
 #search {
-  padding: 6px 10px;
+  padding: 10px 10px;
   border-radius: 8px;
   outline: none;
   border: 1px solid #ff3535;
   margin: 0px 10px 0px 0px;
   width: 50%;
+  font-size: 16px;
+  color: #ff3535;
 }
 
 .search-button {
@@ -135,6 +137,12 @@
 }
 
 /* --------------------------------MEDIA QUERIES---------------------------------- */
+
+@media (max-width: 600px) {
+  #search {
+    width: 100%;
+  }
+}
 
 @media (min-width: 600px) {
   #card {
