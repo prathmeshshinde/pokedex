@@ -1,12 +1,17 @@
-const API_URL = "https://pokeapi.co/api/v2/pokemon?limit=100&offset=0";
+const API_URL = `https://pokeapi.co/api/v2/pokemon`;
+let addLimit = 10;
+let offset = 0;
 
 let getCard = document.getElementById("card");
 let searchForm = document.getElementById("search-form");
+let loader = document.getElementById("loading");
 
 async function fetchAPI() {
-  const data = await fetch(API_URL);
+  loader.style.display = "block";
+  const data = await fetch(`${API_URL}?limit=${addLimit}&offset=${offset}`);
   const response = await data.json();
   const result = await response.results;
+  loader.style.display = "none";
   return result;
 }
 
@@ -85,3 +90,16 @@ function searchOnChange() {
     }
   }
 }
+
+const scroller = document.querySelector("#main-div");
+
+scroller.addEventListener("scroll", (e) => {
+  const pageHeight = Math.round(scroller.scrollHeight - scroller.scrollTop);
+
+  loader.style.display = "block";
+
+  if (pageHeight <= scroller.clientHeight) {
+    offset = offset + addLimit;
+    getPokeData();
+  }
+});
