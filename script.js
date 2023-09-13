@@ -66,6 +66,7 @@ async function getPokeData() {
 getPokeData();
 
 function searchOnChange() {
+  loader.style.display = "none";
   let searchVal = document.getElementById("search");
   let not = document.getElementById("notFound");
   let x = document.getElementsByClassName("card");
